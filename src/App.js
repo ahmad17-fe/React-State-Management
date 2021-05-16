@@ -16,7 +16,7 @@ function App() {
       {isOpen && <Profil />}
 
       <div className="my-24 ">
-        <div className="emulated-flex-gap justify-between">
+        <div className="emulated-flex-gap">
           {isLoading && "Loading...."}
           {isSuccess &&
             data.map((post) => {
