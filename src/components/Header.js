@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useIsFetching } from "react-query";
-import useProfile from "../hooks/useProfile";
+import { ProfileStore } from "../store";
 
 function Header() {
   const isFetchingPost = useIsFetching(["posts"]);
-  const setIsOpen = useProfile((state) => state.setIsOpen);
+  const setIsOpen = ProfileStore((state) => state.setIsOpen);
+
+  useEffect(() => {
+    console.log("header component effect");
+  });
 
   return (
     <header className="bg-white rounded-2xl shadow-lg px-6 w-full h-20 flex justify-between items-center">
@@ -28,4 +32,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default React.memo(Header);

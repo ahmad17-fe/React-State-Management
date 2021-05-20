@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function Article({ post: { id, title, article } }) {
+function Article({ article: { id, title, article } }) {
+  useEffect(() => {
+    console.log("article component effect");
+  });
+
   return (
     <div className="overflow-hidden shadow-lg rounded-lg h-90 w-full md:w-80 cursor-pointer">
       <a href={`#${id}`} className="w-full block h-full">
@@ -18,4 +22,4 @@ function Article({ post: { id, title, article } }) {
   );
 }
 
-export default Article;
+export default React.memo(Article);

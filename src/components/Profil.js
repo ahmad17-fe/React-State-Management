@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Profil() {
+  useEffect(() => {
+    console.log("Profil component effect");
+  });
+
   return (
     <div className="shadow-lg mt-4 absolute rounded-2xl w-64 bg-white dark:bg-gray-800">
       <img
@@ -46,4 +50,4 @@ function Profil() {
   );
 }
 
-export default Profil;
+export default React.memo(Profil);
