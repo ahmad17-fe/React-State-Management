@@ -1,0 +1,12 @@
+{
+  "Post": {
+    "id": "string",
+    "title": "string",
+    "article": "string"
+  },
+  "Profil": {
+    "name": "string",
+    "avatar": "string",
+    "bg": "string"
+  }
+}
