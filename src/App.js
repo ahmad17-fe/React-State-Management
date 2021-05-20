@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 
-import { getAllArticle } from "./api";
+import { Article as ArticleApi } from "./api";
 
 import Article from "./components/Article";
 import Header from "./components/Header";
@@ -9,7 +9,7 @@ import Profil from "./components/Profil";
 import { ProfileStore } from "./store";
 
 function App() {
-  const getArticles = useQuery("posts", getAllArticle, {
+  const getAllArticle = useQuery("posts", ArticleApi.getAllArticle, {
     staleTime: 10000,
     refetchInterval: 10000,
   });
@@ -28,9 +28,9 @@ function App() {
 
       <div className="my-24 ">
         <div className="emulated-flex-gap">
-          {getArticles.isLoading && "Loading...."}
-          {getArticles.isSuccess &&
-            getArticles.data.map((article) => {
+          {getAllArticle.isLoading && "Loading...."}
+          {getAllArticle.isSuccess &&
+            getAllArticle.data.map((article) => {
               return <Article key={article.id} article={article} />;
             })}
         </div>
